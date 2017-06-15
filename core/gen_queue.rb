@@ -2,9 +2,9 @@ require_relative 'channel.rb'
 class GenQueue < Channel
 
         @@q
-        def initialize(queueName)
+        def initialize
                 super()
-                @@q = @@ch.queue(queueName)
+                @@q = @@ch.queue(configurations[:queue_name])
         end
 
 	def sendMsg(msg)
@@ -16,5 +16,7 @@ class GenQueue < Channel
 end
 
 # Get queue name from configuration file
-q = GenQueue.new('hello')
+#puts "#{configurations()[:queue_name]}"
+q = GenQueue.new
 q.sendMsg('Hello From queue')
+

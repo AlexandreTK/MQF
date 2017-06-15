@@ -8,11 +8,7 @@ class Connection < CoreMQF
 	def initialize
 		@@conn = Bunny.new(:hostname => "localhost")
 		@@conn.start
+		super()
 	end
 
-
-	#puts "testing: " + GLOBAL_VAR_1
-
 end
-
-
