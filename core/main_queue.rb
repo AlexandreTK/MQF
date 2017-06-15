@@ -1,5 +1,5 @@
 require_relative 'channel.rb'
-class GenQueue < Channel
+class MainQueue < Channel
 
         @@q
         def initialize
@@ -8,15 +8,14 @@ class GenQueue < Channel
         end
 
 	def sendMsg(msg)
-		@@ch.default_exchange.publish(msg, :routing_key => @@q.name)
+		@@ch.default_exchange.publish(msg, routing_key: @@q.name)
 		puts "Message Sent"
 		@@conn.close
 	end
 
 end
 
-# Get queue name from configuration file
-#puts "#{configurations()[:queue_name]}"
-q = GenQueue.new
+
+q = MainQueue.new
 q.sendMsg('Hello From queue')
 
