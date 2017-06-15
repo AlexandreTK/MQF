@@ -4,17 +4,20 @@ class CoreMQF
 
 	include Config
 
-
         def configurations
                 return Config.get
         end
 
+        # @setup = {
+        #         connection: "false",
+        #         channel: "false"
+        # }
 
         # GLOBAL_VAR_1 = "Core Var 1"
         # def globalFunc1
         #       puts "Core Func 1"
         # end
-        
+
 end
 
 # def initialize

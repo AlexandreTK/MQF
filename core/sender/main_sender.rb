@@ -6,13 +6,13 @@ class MainSender
 	@connection
 
 	def initialize(queue)
-		@queue = queue
+		@queue = queue.getQueue
 		@channel = queue.getChannel
 		@connection = queue.getConnection
 	end
 
 	def sendMsg(msg)
-		@channel.default_exchange.publish(msg, routing_key: @queue.getQueue.name)
+		@channel.default_exchange.publish(msg, routing_key: @queue.name)
 		@connection.close
 	end
 
