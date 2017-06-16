@@ -1,11 +1,4 @@
-# Better if using INHERITANCE (like now) 
-#     or          COMPOSITION (no need to use include)
-#     instantiate this class and use it in the main one.
-
-require_relative 'sender.rb'
-require_relative '../../core/sender/simple_run_sender.rb'
-
-class RunSender < SimpleRunSender
+class RunSender
 
 	def createQueue
 		@q1 = MainQueue.new
@@ -27,7 +20,3 @@ class RunSender < SimpleRunSender
 	# end	
 
 end
-
-r = RunSender.new
-r.run
-

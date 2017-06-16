@@ -5,8 +5,8 @@ class SimpleRunReceiver
 
 	def initialize(appFolderPath)
 		@appFolderPath = appFolderPath
-		require_relative "#{@appFolderPath}receiver.rb"
-		require_relative "#{@appFolderPath}run_receiver.rb"
+		require_relative "#{@appFolderPath}receiver/receiver.rb"
+		require_relative "#{@appFolderPath}receiver/run_receiver.rb"
 		@runReceiverInstance = RunReceiver.new
 
 	end
@@ -31,5 +31,5 @@ class SimpleRunReceiver
 
 end
 
-srr = SimpleRunReceiver.new("../../app/receiver/")
-srr.run
+# srr = SimpleRunReceiver.new("../../app/")
+# srr.run

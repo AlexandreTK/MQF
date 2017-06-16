@@ -6,33 +6,35 @@
 # 	end
 # end
 
-ARGV.each do|a|
-  puts "Argument: #{a}"
-end
+
 
 dirname = File.expand_path(File.dirname(File.dirname(__FILE__)))
-puts dirname
+
+# puts dirname
+# ARGV.each do|a|
+#   puts "Argument: #{a}"
+# end
 
 if ((ARGV[0] == "run") and (ARGV[1] =="sender"))
 	puts "Running Sender"
 
-	# Require the classes dynamically...
-	# Instantiate it
-	# Call the method Run
+	require_relative "../sender/simple_run_sender.rb"
+	srs = SimpleRunSender.new("../../app/")
+	srs.run
+
+
 end
 
 if ((ARGV[0] == "run") and (ARGV[1] =="receiver"))
 	puts "Running Receiver"
 
-	# Require the classes dynamically...
-	# Instantiate it
-	# Call the method Run
+	require_relative "../receiver/simple_run_receiver.rb"
+	srr = SimpleRunReceiver.new("../../app/")
+	srr.run
+
 end
 
 if ((ARGV[0] == "generate") and (ARGV[1] =="all"))
 	puts "Generating Sender and Receiver"
 
-	# Require the classes dynamically...
-	# Instantiate it
-	# Call the method Run
 end
