@@ -1,3 +1,5 @@
+# Refactor --- YAML instead of class?
+
 module Config
 
 	@config = {
