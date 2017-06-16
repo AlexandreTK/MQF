@@ -1,4 +1,4 @@
-require_relative '../main_queue.rb'
+require_relative '../base_comunication/main_queue.rb'
 
 class SimpleReceiver
 	@queue

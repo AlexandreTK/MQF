@@ -1,6 +1,4 @@
 require_relative 'receiver.rb'
-require_relative '../core/main_queue.rb'
-
 
 
 # class MainReceiver < Main

@@ -1,4 +1,4 @@
-require_relative "../config/mqf_conf.rb"
+require_relative "../../config/mqf_conf.rb"
 
 class CoreMQF
 

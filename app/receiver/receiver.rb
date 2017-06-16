@@ -1,4 +1,4 @@
-require_relative '../core/receiver/simple_receiver.rb'
+require_relative '../../core/receiver/simple_receiver.rb'
 
 class Receiver < SimpleReceiver
 
