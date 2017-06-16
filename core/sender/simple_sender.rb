@@ -16,6 +16,7 @@ class SimpleSender
 		@connection.close
 	end
 
+
 end
 
 # q = MainQueue.new

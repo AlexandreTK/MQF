@@ -1,13 +1,36 @@
 require_relative 'sender.rb'
+require_relative '../../core/sender/simple_run_sender.rb'
 
-# class MainSender < Main
+class RunSender < SimpleRunSender
 
-# 	@q1.sendMsg('Hello From queue')
+	def createQueue
+		@q1 = MainQueue.new
+	end
 
-# end
+	# must return the created sender
+	def createSender
+		@sender = Sender.new(@q1)
+	end
 
-q1 = MainQueue.new
+	# Must return the message to be sent
+	def message
+		"3"
+	end
 
-r = Sender.new(q1)
+	# def beforeSendMessage
+	# end
+	# def afterSendMessage
+	# end	
 
-r.sendMsg("Hi my friend, how are you doing")
+end
+
+r = RunSender.new
+r.run
+
+# q1 = MainQueue.new
+
+# r = Sender.new(q1)
+
+# r.sendMsg("3")
+
+
