@@ -6,8 +6,10 @@ class SimpleRunSender
 
 	def initialize(appFolderPath)
 		@appFolderPath = appFolderPath
-		require_relative "#{@appFolderPath}sender/sender.rb"
-		require_relative "#{@appFolderPath}sender/run_sender.rb"
+		#puts "#{@appFolderPath}"
+		#puts "#{File.dirname(@appFolderPath)}/sender.rb"
+		require "#{@appFolderPath}"
+		require "#{File.dirname(@appFolderPath)}/sender.rb"
 		@runSenderInstance = RunSender.new
 	end
 

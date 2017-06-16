@@ -8,16 +8,18 @@
 
 
 
-
+# path to sender ...
 if ((ARGV[0] == "run") and (ARGV[1] =="sender"))
 	puts "Running Sender"
 
 	require_relative "../sender/simple_run_sender.rb"
-	srs = SimpleRunSender.new("../../app/")
+	sender_path = "#{File.expand_path('.')}/#{ARGV[2]}"
+
+	srs = SimpleRunSender.new(sender_path)
 	srs.run
 end
 
-# path to un_receiver ...
+# path to receiver ...
 if ((ARGV[0] == "run") and (ARGV[1] =="receiver") and (ARGV[2] != nil))
 	puts "Running Receiver"
 

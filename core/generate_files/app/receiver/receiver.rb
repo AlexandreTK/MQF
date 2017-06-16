@@ -1,6 +1,5 @@
 require_relative '../../config/mqf_conf.rb'
 c = Config.get[:framework_core_path]
-puts c
 require "#{c}/receiver/simple_receiver.rb"
 
 class Receiver < SimpleReceiver

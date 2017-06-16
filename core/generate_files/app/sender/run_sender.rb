@@ -10,7 +10,7 @@ class RunSender
 	end
 
 	# Must return the message to be sent
-	def message. # Should it be in the sender or run_sender?
+	def message # Should it be in the sender or run_sender?
 		"3"
 	end
 
