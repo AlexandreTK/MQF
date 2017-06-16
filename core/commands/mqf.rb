@@ -17,21 +17,25 @@ if ((ARGV[0] == "run") and (ARGV[1] =="sender"))
 	srs.run
 end
 
-
-if ((ARGV[0] == "run") and (ARGV[1] =="receiver"))
+# path to un_receiver ...
+if ((ARGV[0] == "run") and (ARGV[1] =="receiver") and (ARGV[2] != nil))
 	puts "Running Receiver"
 
 	require_relative "../receiver/simple_run_receiver.rb"
-	srr = SimpleRunReceiver.new("../../app/")
+
+	receiver_path = "#{File.expand_path('.')}/#{ARGV[2]}"
+	#puts receiver_path
+	srr = SimpleRunReceiver.new(receiver_path)
 	srr.run
 end
 
-def createConfigFile(path, framework_generator_path)
+def createConfigFile(path, framework_core_path)
 	out_file = File.new(path, "w")
 
 	out_file.puts("module Config")
 	out_file.puts("	@config = {")
-	out_file.puts("		framework_path: '#{framework_generator_path}',")
+	out_file.puts("		framework_core_path: '#{framework_core_path}',")
+	out_file.puts("		framework_run_path: '#{framework_core_path}/commands/mqf.rb'")
 	out_file.puts("	}")
 	out_file.puts("	def self.get")
 	out_file.puts("		return @config")
@@ -67,7 +71,7 @@ if ((ARGV[0] == "new") and (ARGV[1] != nil))
 	
 	require 'fileutils'
 	FileUtils.cp_r project_generator_path, project_name_path
-	createConfigFile(project_config_path, core_path+"/commands/mqf.rb")
+	createConfigFile(project_config_path, core_path)
 end
 
 
