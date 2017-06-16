@@ -1,6 +1,6 @@
 require_relative '../main_queue.rb'
 
-class MainSender
+class SimpleSender
 	@queue
 	@channel
 	@connection
@@ -18,7 +18,7 @@ class MainSender
 
 end
 
-q = MainQueue.new
+# q = MainQueue.new
 
-s = MainSender.new(q)
-s.sendMsg('Hello From queue')
+# s = SimpleSender.new(q)
+# s.sendMsg('Hello From queue')
