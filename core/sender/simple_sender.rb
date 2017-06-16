@@ -18,8 +18,3 @@ class SimpleSender
 
 
 end
-
-# q = MainQueue.new
-
-# s = SimpleSender.new(q)
-# s.sendMsg('Hello From queue')

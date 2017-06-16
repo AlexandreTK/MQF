@@ -1,3 +1,7 @@
+# Better if using INHERITANCE (like now) 
+#     or          COMPOSITION (no need to use include)
+#     instantiate this class and use it in the main one.
+
 require_relative 'sender.rb'
 require_relative '../../core/sender/simple_run_sender.rb'
 
@@ -26,11 +30,4 @@ end
 
 r = RunSender.new
 r.run
-
-# q1 = MainQueue.new
-
-# r = Sender.new(q1)
-
-# r.sendMsg("3")
-
 

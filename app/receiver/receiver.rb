@@ -1,3 +1,7 @@
+# Better if using INHERITANCE (like now) 
+#     or          COMPOSITION (no need to use include)
+#     instantiate this class and use it in the main one.
+
 require_relative '../../core/receiver/simple_receiver.rb'
 
 class Receiver < SimpleReceiver
@@ -15,7 +19,6 @@ class Receiver < SimpleReceiver
 		puts " [x] The message received was: #{body}"
 		@sum = @sum + body.to_i
 		puts @sum.to_s
-		#puts " [x] The message received was: #{body}"
 	end
 
 end

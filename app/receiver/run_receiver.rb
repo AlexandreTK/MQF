@@ -1,3 +1,6 @@
+# Better if using INHERITANCE (like now) 
+#     or          COMPOSITION (no need to use include)
+#     instantiate this class and use it in the main one.
 require_relative 'receiver.rb'
 require_relative '../../core/receiver/simple_run_receiver.rb'
 
@@ -20,8 +23,3 @@ end
 
 r = RunReceiver.new
 r.run
-# q1 = MainQueue.new
-
-# r = Receiver.new(q1)
-
-# r.recvMsg

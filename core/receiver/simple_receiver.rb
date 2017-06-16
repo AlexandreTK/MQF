@@ -32,17 +32,7 @@ class SimpleReceiver
 
 	# TODO: Create a Arg class... (so that we can do more things with this method)
 	def duringRecvLoop(delivery_info, properties, body)
-		# puts " [x] Received #{body}"
 		raise "Not Implemented Error"
 	end
 
 end
-
-
-
-
-
-# q = MainQueue.new
-
-# s = SimpleReceiver.new(q)
-# s.recvMsg
