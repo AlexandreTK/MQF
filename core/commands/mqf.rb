@@ -36,5 +36,10 @@ end
 
 if ((ARGV[0] == "generate") and (ARGV[1] =="all"))
 	puts "Generating Sender and Receiver"
-
+	from_path = "#{File.expand_path(File.dirname(File.dirname(__FILE__)))}/app_base_files/."
+	to_path = "#{File.expand_path('.')}/app"
+	puts from_path
+	puts to_path
+	require 'fileutils'
+	FileUtils.cp_r from_path, to_path
 end
