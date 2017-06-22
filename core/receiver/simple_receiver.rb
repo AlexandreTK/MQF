@@ -4,16 +4,18 @@ class SimpleReceiver
 	@queue
 	@channel
 	@connection
+	@receiverInstance
 
-	def initialize(queue)
+	def initialize(queue, receiverInstance)
 		@queue = queue.getQueue
 		@channel = queue.getChannel
 		@connection = queue.getConnection
+		@receiverInstance = receiverInstance
 	end
 
 	def recvMsg
 		begin
-		  beforeRecvLoop(nil)
+		  beforeRecvLoop
 		  @queue.subscribe(:block => true) do |delivery_info, properties, body|
 
 		    duringRecvLoop(delivery_info, properties, body)
@@ -26,13 +28,12 @@ class SimpleReceiver
 		end
 	end
 
-	def beforeRecvLoop(beforeParam)
-		# puts " [*] Waiting for messages. To exit press CTRL+C"
+	def beforeRecvLoop
+		@receiverInstance.beforeRecvLoop
 	end
 
-	# TODO: Create a Arg class... (so that we can do more things with this method)
 	def duringRecvLoop(delivery_info, properties, body)
-		raise "Not Implemented Error"
+		@receiverInstance.duringRecvLoop(delivery_info, properties, body)
 	end
 
 end

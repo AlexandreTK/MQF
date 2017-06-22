@@ -14,21 +14,22 @@ class SimpleRunReceiver
 	end
 
 	def run
-		createQueue
+		# createQueue
 		createReceiver
 		executeReceiver
 	end
 
-	def createQueue
-		@runReceiverInstance.createQueue
-	end
 
 	def createReceiver
+		require_relative 'simple_receiver'
 		@runReceiverInstance.createReceiver
+		@q1 = MainQueue.new
+		@sr = SimpleReceiver.new(@q1, @runReceiverInstance.getReceiver)
 	end
 
 	def executeReceiver
-		@runReceiverInstance.executeReceiver
+		#@runReceiverInstance.executeReceiver
+		@sr.recvMsg
 	end
 
 end
