@@ -43,7 +43,26 @@ And that's it!
 7. Run the sender by running the command:
   
   > ruby <path_to_sender.rb> run sender <path_to_sender.rb>
+
+
+## Avaliable commands
+
+Before each command, you should type:
   
+  > ruby <path_to_mqf.rb>
+  - After creating the project, you may use the "mqf.rb" that is in the application directory or the one in the framework directory, there is no difference.
+  - The "mqf.rb" in the framework directory is located at "core/commands/mqf.rb:
+  
+* new <project name> 
+  - Creates a new project with the specified name
+* generate simple
+  - Generates a simple receiver and sender. Run this command in the root of the project folder.
+* run receiver <path_to_the_receiver>
+  - The receiver is in the app folder. You should specify the path to it.
+* run sender <path_to_the_sender>
+  - The sender is in the app folder. You should specify the path to it.
+
+
 ## Example
 
 When generating the "receiver.rb" and "sender.rb", you will be provided with an default example. You might want to use it to better understand the framework.
@@ -107,24 +126,6 @@ When generating the "receiver.rb" and "sender.rb", you will be provided with an 
 		end	
 	end
 	```
-
-
-## Avaliable commands
-
-Before each command, you should type:
-  
-  > ruby <path_to_mqf.rb>
-  - After creating the project, you may use the "mqf.rb" that is in the application directory or the one in the framework directory, there is no difference.
-  - The "mqf.rb" in the framework directory is located at "core/commands/mqf.rb:
-  
-* new <project name> 
-  - Creates a new project with the specified name
-* generate simple
-  - Generates a simple receiver and sender. Run this command in the root of the project folder.
-* run receiver <path_to_the_receiver>
-  - The receiver is in the app folder. You should specify the path to it.
-* run sender <path_to_the_sender>
-  - The sender is in the app folder. You should specify the path to it.
 
 RabbitMQ: https://www.rabbitmq.com/
 
