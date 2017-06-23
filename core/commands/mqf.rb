@@ -72,7 +72,7 @@ end
 
 
 # Generating app files (used for comunication)
-if ((ARGV[0] == "generate") and (ARGV[1] =="all"))
+if ((ARGV[0] == "generate") and (ARGV[1] =="simple"))
 
 	puts "Generating Sender and Receiver"
 
