@@ -51,7 +51,7 @@ When generating the "receiver.rb" and "sender.rb", you will be provided with an 
 * Receiver - adds 2 numbers:
   - You should implement at least the "beforeRecvLoop" and "duringRecvLoop" functions.
 
-
+	```
 	class ConcreteReceiverExample1 < AbstractReceiver
 		@val1
 		@val2
@@ -86,11 +86,12 @@ When generating the "receiver.rb" and "sender.rb", you will be provided with an 
 			@counter = @counter + 1
 		end
 	end
+	```
 
 * Sender - sends a random number
   - You should implement at least the "message" function
   
-  
+  	```
 	class ConcreteSenderExample1 < AbstractSender
 		def beforeSendMessage
 			puts "*** This message shows up before sending the message ***"
@@ -105,6 +106,7 @@ When generating the "receiver.rb" and "sender.rb", you will be provided with an 
 			puts "*** This message shows up after sending the message ***"
 		end	
 	end
+	```
 
 
 ## Avaliable commands
