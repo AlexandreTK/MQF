@@ -45,9 +45,9 @@ And that's it!
 When generating the "receiver.rb" and "sender.rb", you will be provided with an default example. You might want to use it to better understand the framework.
 
 * Receiver - adds 2 numbers:
+  - You should implement at least the "beforeRecvLoop" and "duringRecvLoop" functions.
 
 class ConcreteReceiverExample1 < AbstractReceiver
-
         @val1
         @val2
         @counter
@@ -83,9 +83,9 @@ class ConcreteReceiverExample1 < AbstractReceiver
 end
 
 * Sender - sends a random number
-
+  - You should implement at least the "message" function
+  
 class ConcreteSenderExample1 < AbstractSender
-
 	def beforeSendMessage
 		puts "*** This message shows up before sending the message ***"
 	end
