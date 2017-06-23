@@ -22,11 +22,9 @@ end
 # path to receiver ...
 if ((ARGV[0] == "run") and (ARGV[1] =="receiver") and (ARGV[2] != nil))
 	puts "Running Receiver"
-
-	require_relative "../receiver/simple_run_receiver.rb"
+	require_relative "../receiver/simple_receiver.rb"
 
 	receiver_path = "#{File.expand_path('.')}/#{ARGV[2]}"
-	#puts receiver_path
 	srr = SimpleRunReceiver.new(receiver_path)
 	srr.run
 end

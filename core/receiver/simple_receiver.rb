@@ -37,3 +37,37 @@ class SimpleReceiver
 	end
 
 end
+
+
+
+class SimpleRunReceiver 
+
+	@runReceiverInstance
+	@appFolderPath
+
+	def initialize(appFolderPath)
+		@appFolderPath = appFolderPath
+		require "#{@appFolderPath}"
+		@runReceiverInstance = RunReceiver.new
+
+	end
+
+	def run
+		# createQueue
+		createReceiver
+		executeReceiver
+	end
+
+
+	def createReceiver
+		@runReceiverInstance.createReceiver
+		@q1 = MainQueue.new
+		@sr = SimpleReceiver.new(@q1, @runReceiverInstance.getReceiver)
+	end
+
+	def executeReceiver
+		#@runReceiverInstance.executeReceiver
+		@sr.recvMsg
+	end
+
+end
