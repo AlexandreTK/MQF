@@ -1,36 +1,20 @@
 # Refactor later
 
-# class Commands
-# 	def execute
-# 		raise "Not Implemented Error"
-# 	end
-# end
 
-
-
-# path to sender ...
-if ((ARGV[0] == "run") and (ARGV[1] =="sender"))
-	puts "Running Sender"
-
-	require_relative "../sender/simple_run_sender.rb"
-	sender_path = "#{File.expand_path('.')}/#{ARGV[2]}"
-
-	srs = SimpleRunSender.new(sender_path)
-	srs.run
-end
-
-# path to receiver ...
-if ((ARGV[0] == "run") and (ARGV[1] =="receiver") and (ARGV[2] != nil))
-	puts "Running Receiver"
-	require_relative "../receiver/simple_receiver.rb"
-
-	receiver_path = "#{File.expand_path('.')}/#{ARGV[2]}"
-	srr = SimpleRunReceiver.new(receiver_path)
-	srr.run
-end
-
+# Creating a confing file with the framework information
 def createConfigFile(path, framework_core_path)
 	out_file = File.new(path, "w")
+
+	# Output something like this to a file:
+	# module Config
+	# 	@config = {
+	# 		framework_path: "hello"
+
+	# 	}
+	# 	def self.get
+	# 		return @config
+	# 	end	
+	# end
 
 	out_file.puts("module Config")
 	out_file.puts("	@config = {")
@@ -42,19 +26,31 @@ def createConfigFile(path, framework_core_path)
 	out_file.puts("	end")
 	out_file.puts("end")
 
-	# module Config
-	# 	@config = {
-	# 		framework_path: "hello"
-
-	# 	}
-	# 	def self.get
-	# 		return @config
-	# 	end	
-	# end
-
 	out_file.close
 end
 
+
+
+# if args = <run> <sender> <path to sender>
+if ((ARGV[0] == "run") and (ARGV[1] =="sender"))
+
+	require_relative "../sender/simple_sender.rb"
+	sender_path = "#{File.expand_path('.')}/#{ARGV[2]}"
+
+	srs = SimpleRunSender.new(sender_path)
+	srs.run
+end
+
+# if args = <run> <receiver> <path to receiver>
+if ((ARGV[0] == "run") and (ARGV[1] =="receiver") and (ARGV[2] != nil))
+	require_relative "../receiver/simple_receiver.rb"
+
+	receiver_path = "#{File.expand_path('.')}/#{ARGV[2]}"
+	srr = SimpleRunReceiver.new(receiver_path)
+	srr.run
+end
+
+# Generating project files
 if ((ARGV[0] == "new") and (ARGV[1] != nil))
 
 	puts "Generating new project"
@@ -75,7 +71,7 @@ if ((ARGV[0] == "new") and (ARGV[1] != nil))
 end
 
 
-
+# Generating app files (used for comunication)
 if ((ARGV[0] == "generate") and (ARGV[1] =="all"))
 
 	puts "Generating Sender and Receiver"
