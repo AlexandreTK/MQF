@@ -30,14 +30,18 @@ And that's it!
 1. Go to the folder where you want to create your application
 2. Open the application folder
 2. Run the following command to create a new project.
-  > ruby  <path_to_framework_folder/core/commands/mqf.rb>   new   <project_name>
+  
+  > ruby  <path_to_framework_folder/core/commands/mqf.rb>   new   <project_name>
 3. Go to the project root directory, and run the command:
+  
   > ruby mqf.rb generate simple
 4. Now the "receiver.rb" and "sender.rb" files will be created in the app folder.
 5. Edit the "receiver.rb" and "sender.rb" files
 6. Run the receiver by running the command:
+  
   > ruby <path_to_mqf.rb> run receiver <path_to_receiver.rb>
 7. Run the sender by running the command:
+  
   > ruby <path_to_sender.rb> run sender <path_to_sender.rb>
   
 ## Example
@@ -104,6 +108,7 @@ end
 ## Avaliable commands
 
 Before each command, you should type:
+  
   > ruby <path_to_mqf.rb>
   - After creating the project, you may use the "mqf.rb" that is in the application directory or the one in the framework directory, there is no difference.
   - The "mqf.rb" in the framework directory is located at "core/commands/mqf.rb:
