@@ -1,7 +1,8 @@
 # PigeonMQF
 
-PigeonMQF is a proof of concept of new features to be implemented to the Pigeon Framework
+PigeonMQF is a proof of concept of new features that might be implemented to the Pigeon Framework.
 
+Video: https://youtu.be/ArVD4FF0hAU
 
 ## Dependencies
 
