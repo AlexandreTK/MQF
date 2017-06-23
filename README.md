@@ -34,7 +34,7 @@ And that's it!
   > ruby  <path_to_framework_folder/core/commands/mqf.rb>   new   <project_name>
 3. Go to the project root directory, and run the command:
   
-  > ruby mqf.rb generate simple
+  > ruby <path_to_mqf.rb> generate simple
 4. Now the "receiver.rb" and "sender.rb" files will be created in the app folder.
 5. Edit the "receiver.rb" and "sender.rb" files
 6. Run the receiver by running the command:
@@ -51,58 +51,60 @@ When generating the "receiver.rb" and "sender.rb", you will be provided with an 
 * Receiver - adds 2 numbers:
   - You should implement at least the "beforeRecvLoop" and "duringRecvLoop" functions.
 
-class ConcreteReceiverExample1 < AbstractReceiver
-        @val1
-        @val2
-        @counter
 
-        def beforeRecvLoop
-                puts " [*] Waiting for messages... "
-                @val1 = 0
-                @val2 = 0
-                @counter = 0
-        end
+	class ConcreteReceiverExample1 < AbstractReceiver
+		@val1
+		@val2
+		@counter
 
-        def duringRecvLoop(delivery_info, properties, body)
+		def beforeRecvLoop
+			puts " [*] Waiting for messages... "
+			@val1 = 0
+			@val2 = 0
+			@counter = 0
+		end
 
-                if (@counter % 2 == 0)
-                        puts " [x] Value 1 is: #{body}"
-                        @val1 = body.to_i
-                end
+		def duringRecvLoop(delivery_info, properties, body)
 
-                if (@counter % 2 == 1)
-                        puts " [x] Value 2 is: #{body}"
-                        @val2 = body.to_i
-                end
+			if (@counter % 2 == 0)
+				puts " [x] Value 1 is: #{body}"
+				@val1 = body.to_i
+			end
 
-                if (@val1 != 0 and @val2 != 0)
-                        sum = @val1 + @val2
-                        puts " [***] The sum #{@val1}+#{@val2} is: #{sum}"
-                        @val1 = 0
-                        @val2 = 0
-                end
+			if (@counter % 2 == 1)
+				puts " [x] Value 2 is: #{body}"
+				@val2 = body.to_i
+			end
 
-                @counter = @counter + 1
-        end
-end
+			if (@val1 != 0 and @val2 != 0)
+				sum = @val1 + @val2
+				puts " [***] The sum #{@val1}+#{@val2} is: #{sum}"
+				@val1 = 0
+				@val2 = 0
+			end
+
+			@counter = @counter + 1
+		end
+	end
 
 * Sender - sends a random number
   - You should implement at least the "message" function
   
-class ConcreteSenderExample1 < AbstractSender
-	def beforeSendMessage
-		puts "*** This message shows up before sending the message ***"
-	end
+  
+	class ConcreteSenderExample1 < AbstractSender
+		def beforeSendMessage
+			puts "*** This message shows up before sending the message ***"
+		end
 
-	# Must return the message (STRING) to be sent
-	def message 
-		"#{Random.rand(11)}"
-	end
+		# Must return the message (STRING) to be sent
+		def message 
+			"#{Random.rand(11)}"
+		end
 
-	def afterSendMessage
-		puts "*** This message shows up after sending the message ***"
-	end	
-end
+		def afterSendMessage
+			puts "*** This message shows up after sending the message ***"
+		end	
+	end
 
 
 ## Avaliable commands
