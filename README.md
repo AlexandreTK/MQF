@@ -2,13 +2,11 @@
 
 PigeonMQF is a proof of concept of new features that might be implemented to the Pigeon Framework.
 
--------
-What is the Pigeon Framework?
+Video: https://youtu.be/ArVD4FF0hAU
+
+## What is the Pigeon Framework?
 
 It's a framework developed in ruby that makes it easier for developers to use RabbitMQ (message broker). This framework let's the developer focus on the implementation of each software component/service functionality rather than on the communication between them.
--------
-
-Video: https://youtu.be/ArVD4FF0hAU
 
 ## Dependencies
 
